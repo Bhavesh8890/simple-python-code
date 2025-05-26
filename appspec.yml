@@ -3,15 +3,15 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ec2-user/app
+    destination: /home/ec2-user/todo-app
 
 hooks:
   AfterInstall:
-    - location: scripts/install.sh
+    - location: deploy.sh
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: deploy.sh
       timeout: 300
       runas: ec2-user
