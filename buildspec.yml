@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r requirements.txt || true  # You can skip if no requirements
+  build:
+    commands:
+      - echo "Running basic test"
+      - python -m py_compile todo.py   # Basic syntax check
+
+artifacts:
+  files:
+    - "**/*"
