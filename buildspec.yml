@@ -5,17 +5,17 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - echo "Installing dependencies..."
+      - echo "📦 Installing Python dependencies..."
       - pip install -r requirements.txt || true
 
   build:
     commands:
-      - echo "Build phase - can include linting or packaging"
+      - echo "🔍 Build phase - optionally lint or package the app"
 
   post_build:
     commands:
-      - echo "Testing phase"
-      - pytest || echo "No tests found"
+      - echo "✅ Running tests with Pytest..."
+      - pytest || echo "⚠️ No tests found or failed, continuing..."
 
 artifacts:
   files:
