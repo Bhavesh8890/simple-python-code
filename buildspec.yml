@@ -14,5 +14,5 @@ phases:
       - echo "Deploying to EC2"
       - chmod 400 xfx.pem
       - |
-        scp -o StrictHostKeyChecking=no -i xfx.pem deploy.sh ec2-user@13.232.203.69:/home/ec2-user/
-        ssh -o StrictHostKeyChecking=no -i xfx.pem ec2-user@13.232.203.69 "bash deploy.sh"
+        scp -o StrictHostKeyChecking=no -i xfx.pem deploy.sh ec2-user@65.2.161.94:/home/ec2-user/
+        ssh -o StrictHostKeyChecking=no -i xfx.pem ec2-user@65.2.161.94 "bash deploy.sh"
