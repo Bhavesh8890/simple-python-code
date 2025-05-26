@@ -4,18 +4,24 @@ set -e
 APP_DIR="/home/ec2-user/todo-app"
 REPO_URL="https://github.com/Bhavesh8890/simple-python-code.git"
 
-echo "🚀 Deploying To-Do App..."
+echo "🚀 Starting deployment of To-Do CLI app..."
 
-# Clone repo or pull latest
+# Pull or clone the latest code
 if [ -d "$APP_DIR" ]; then
-  cd $APP_DIR
+  echo "📁 Directory exists. Pulling latest changes..."
+  cd "$APP_DIR"
   git pull origin main
 else
-  git clone $REPO_URL $APP_DIR
-  cd $APP_DIR
+  echo "📁 Directory doesn't exist. Cloning repository..."
+  git clone "$REPO_URL" "$APP_DIR"
+  cd "$APP_DIR"
 fi
 
-# Optional: run your CLI app
+# Set permissions (optional, good practice)
+chmod +x deploy.sh
+
+# Optionally run the app
+# echo "🎯 Launching the CLI app..."
 # python3 todo.py
 
-echo "✅ Deployment completed!"
+echo "✅ Deployment successful!"
