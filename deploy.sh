@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-APP_DIR="/home/ec2-user/todo-app"
-REPO_URL="https://github.com/<your-username>/simple-python-code.git"
+APP_DIR="/home/ec2-user/app"
+REPO_URL="https://github.com/Bhavesh8890/simple-python-code.git"
 
 echo "🚀 Deploying To-Do App..."
 
