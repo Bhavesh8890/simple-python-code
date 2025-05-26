@@ -8,11 +8,6 @@ def load_tasks():
         with open(TODO_FILE, "r") as file:
             return json.load(file)
     return []
-def load_tasks():
-    if os.path.exists(TODO_FILE):
-        with open(TODO_FILE, "s") as file:
-            return json.load(file)
-    return []
 def save_tasks(tasks):
     with open(TODO_FILE, "w") as file:
         json.dump(tasks, file, indent=2)
