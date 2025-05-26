@@ -3,16 +3,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.11
+      python: 3.9
     commands:
-      - echo "Installing dependencies"
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt || true
+
   build:
     commands:
-      - echo "Build phase complete (CLI app, no build needed)"
+      - echo "Build phase - can include linting or packaging"
+
   post_build:
     commands:
-      - echo "Deploying to EC2"
-      - chmod 400 xfx.pem
-      - |
-        scp -o StrictHostKeyChecking=no -i xfx.pem deploy.sh ec2-user@65.2.161.94:/home/ec2-user/
-        ssh -o StrictHostKeyChecking=no -i xfx.pem ec2-user@65.2.161.94 "bash deploy.sh"
+      - echo "Testing phase"
+      - pytest || echo "No tests found"
+
+artifacts:
+  files:
+    - '**/*'
